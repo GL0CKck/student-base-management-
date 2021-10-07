@@ -3,8 +3,16 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 
 
 class Group(models.Model):
-    name = models.CharField(db_index=True, unique=True, max_length=122, verbose_name='Название группы')
-    super_group = models.ForeignKey('SuperGroup', on_delete=models.PROTECT, null=True, blank=True,
+    name = models.CharField(db_index=True, unique=True, max_length=122,
+                            verbose_name='Название группы')
+    is_headman = models.ForeignKey('Student', on_delete=models.PROTECT,
+                                   null=True,
+                                   blank=True,
+                                   verbose_name='Староста',
+                                   related_name='headman')
+    super_group = models.ForeignKey('SuperGroup', on_delete=models.PROTECT,
+                                    null=True,
+                                    blank=True,
                                     verbose_name='Группа')
 
 
@@ -75,7 +83,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=29, verbose_name='Фамилия')
     group = models.ForeignKey(SubGroup, on_delete=models.CASCADE, related_name='supergroup', blank=True, null=True)
     data_joined = models.DateField(auto_now_add=True, db_index=True)
-    is_headman = models.BooleanField(default=False, verbose_name='Староста')
+
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
