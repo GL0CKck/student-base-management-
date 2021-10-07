@@ -1,6 +1,18 @@
 from django.contrib import admin
 from .models import *
 
+
+class StudentInlineGroup(admin.TabularInline):
+    model = Student
+    list_display = ('first_name', 'last_name', 'email')
+    search_fields = ('first_name', 'last_name', 'email')
+    fields = ('first_name', 'last_name', 'email')
+
+
+class GroupAdmin(admin.ModelAdmin):
+    inlines = (StudentInlineGroup,)
+
+
 admin.site.register(SuperGroup)
 admin.site.register(Student)
-admin.site.register(SubGroup)
+admin.site.register(SubGroup, GroupAdmin)
