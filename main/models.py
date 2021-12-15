@@ -30,7 +30,7 @@ class SuperGroup(Group):
     class Meta:
         proxy = True
         ordering = ('name', )
-        verbose_name = ' Над группа'
+        verbose_name = 'Над группа'
         verbose_name_plural = 'Над группы'
 
 
