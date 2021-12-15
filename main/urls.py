@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from .views import RegisterUserApiView, StudentsApiView, StudentsViewSet
+from .views import RegisterUserApiView, StudentsApiView, StudentsViewSet, RegisterGroupApiView
 
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('register/', RegisterUserApiView.as_view(), name='register_user'),
     path('user_list/', StudentsApiView.as_view(), name='user_list'),
+    path('create_group/', RegisterGroupApiView.as_view(), name='create_group')
 ]

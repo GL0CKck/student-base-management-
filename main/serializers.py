@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import *
+from .models import Student, SubGroup, SuperGroup, Group
 
 
 class RegisterStudentSerializer(serializers.ModelSerializer):
@@ -12,7 +12,7 @@ class RegisterStudentSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubGroup
-        fields = ('name',)
+        fields = ('name', 'is_headman')
 
 
 class StudentsSerializer(serializers.ModelSerializer):
@@ -23,3 +23,7 @@ class StudentsSerializer(serializers.ModelSerializer):
         fields = ('id', 'first_name', 'last_name', 'group')
 
 
+class RegisterSubGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ('name', 'is_headman', 'super_group')
