@@ -17,6 +17,6 @@ class SuperGroupAdmin(admin.ModelAdmin):
     fields = ('name',)
 
 
-admin.site.register(SuperGroup,SuperGroupAdmin)
+admin.site.register(SuperGroup, SuperGroupAdmin)
 admin.site.register(Student)
 admin.site.register(SubGroup, GroupAdmin)
