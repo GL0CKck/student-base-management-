@@ -14,6 +14,9 @@ def calc_sql_time(sql):
     timestamp = time.monotonic()
 
     yield
+    if hasattr(thread_local, 'sql_count'):
+        thread_local.sql_count += 1
+        thread_local.sql_total += time.monotonic() - timestamp
 
     print(f'Продолжительность SQL-запроса{sql} - {time.monotonic() - timestamp:.3f} сек.')
 
