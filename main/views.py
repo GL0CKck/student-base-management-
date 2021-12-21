@@ -44,3 +44,4 @@ class StudentsViewSet(viewsets.ModelViewSet):
     queryset = Student.object.all()
     serializer_class = StudentsSerializer
     permission_classes = [permissions.IsAuthenticated]
+
