@@ -6,7 +6,7 @@ import datetime
 
 
 @receiver(post_save, sender=Student)
-def signal_create_user(sender, instance, created, pub_date=datetime.datetime.now(), **kwargs):
+def signal_delete_user(sender, instance, created, pub_date=datetime.datetime.now(), **kwargs):
     if created:
         user = Student.object.get(id=instance.id)
         print(f'Create new student {pub_date} - {user}')
