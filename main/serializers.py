@@ -4,7 +4,7 @@ from .models import Student, SubGroup, SuperGroup, Group
 
 
 class RegisterStudentSerializer(serializers.ModelSerializer):
-    my_handler(sender=Student)
+    # my_handler(sender=Student)
     class Meta:
         model = Student
         fields = ('id', 'first_name', 'last_name', 'email', 'group', 'password')
