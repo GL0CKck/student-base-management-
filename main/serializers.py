@@ -1,6 +1,7 @@
 from rest_framework import serializers
+
+from .models import Group, Student, SubGroup, SuperGroup
 from .signals import signal_delete_user
-from .models import Student, SubGroup, SuperGroup, Group
 
 
 class RegisterStudentSerializer(serializers.ModelSerializer):

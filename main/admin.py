@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import SuperGroup, Student, SubGroup
+
+from .models import Student, SubGroup, SuperGroup
 
 
 class StudentInlineGroup(admin.TabularInline):

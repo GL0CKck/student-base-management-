@@ -2,9 +2,10 @@ import time
 from contextlib import contextmanager
 from threading import local
 
-from django.utils.encoding import force_text
-from django.db.backends.postgresql.base import DatabaseWrapper as DjangoDatabaseWrapper
+from django.db.backends.postgresql.base import \
+    DatabaseWrapper as DjangoDatabaseWrapper
 from django.db.backends.utils import CursorWrapper as DjangoCursorWrapper
+from django.utils.encoding import force_text
 
 thread_local = local()
 

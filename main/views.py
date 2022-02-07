@@ -1,16 +1,13 @@
 from django.shortcuts import render
-
-from .models import Student, Group
-
-from .serializers import RegisterStudentSerializer, StudentsSerializer, RegisterSubGroupSerializer
-
-from rest_framework.permissions import AllowAny
+from rest_framework import permissions, status, viewsets
 from rest_framework.generics import ListAPIView
-from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework.views import APIView
+
+from .models import Group, Student
+from .serializers import (RegisterStudentSerializer,
+                          RegisterSubGroupSerializer, StudentsSerializer)
 
 
 class RegisterUserApiView(APIView):

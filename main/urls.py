@@ -1,8 +1,9 @@
-from django.urls import path, include
-
-from .views import RegisterUserApiView, StudentsApiView, StudentsViewSet, RegisterGroupApiView
-
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter
+
+from .views import (RegisterGroupApiView, RegisterUserApiView, StudentsApiView,
+                    StudentsViewSet)
+
 router = DefaultRouter()
 
 router.register('user_list', StudentsViewSet)

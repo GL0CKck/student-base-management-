@@ -1,6 +1,7 @@
-from .models import SubGroup
 import time
+
 from .base import thread_local
+from .models import SubGroup
 
 
 def group_context_processor(request):
@@ -22,8 +23,7 @@ class RequestTimeMiddleware:
         response = self.get_response(request)
 
         print(f'Продолжительность запроса {request.path} - {time.monotonic() - timestamp:.3f} sec.'
-              f'Количество SQL-запросов - {thread_local.sql_count}.'
-              f'Продолжительность SQL-запросов - {thread_local.sql_total:.3f}.')
+              f'Количество SQL-запросов - {thread_local.sql_count}.')
 
         thread_local.sql_total = 0
         thread_local.sql_count = 0
