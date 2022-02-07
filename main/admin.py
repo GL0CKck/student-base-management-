@@ -10,12 +10,18 @@ class StudentInlineGroup(admin.TabularInline):
     fields = ('first_name', 'last_name', 'email')
 
 
+class SubGroupInlineAdmin(admin.TabularInline):
+    model = SubGroup
+    list_display = ('name',)
+
+
 class GroupAdmin(admin.ModelAdmin):
     inlines = (StudentInlineGroup,)
 
 
 class SuperGroupAdmin(admin.ModelAdmin):
     fields = ('name',)
+    inlines = (SubGroupInlineAdmin,)
 
 
 admin.site.register(SuperGroup, SuperGroupAdmin)
