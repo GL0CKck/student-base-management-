@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from .models import Group, Student, SubGroup, SuperGroup
-from .signals import signal_delete_user
+from .models import Group, Student, SubGroup
 
 
 class RegisterStudentSerializer(serializers.ModelSerializer):
@@ -12,6 +11,7 @@ class RegisterStudentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = SubGroup
         fields = ('name', 'is_headman')
@@ -23,7 +23,7 @@ class StudentsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = ('id', 'first_name', 'last_name', 'group')
+        fields = ('id', 'first_name', 'last_name', 'email', 'group')
 
 
 class RegisterSubGroupSerializer(serializers.ModelSerializer):

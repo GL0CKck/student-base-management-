@@ -84,7 +84,6 @@ class Student(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=29, verbose_name='Фамилия')
     group = models.ForeignKey(SubGroup, on_delete=models.CASCADE, related_name='supergroup', blank=True, null=True)
     data_joined = models.DateField(auto_now_add=True, db_index=True)
-
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
@@ -96,14 +95,8 @@ class Student(AbstractBaseUser, PermissionsMixin):
         return full_name
 
     def get_short_name(self):
-        return self.last_name
+        return self.email
 
     class Meta:
         verbose_name = 'Студент'
         verbose_name_plural = 'Студенты'
-
-
-
-
-
-
