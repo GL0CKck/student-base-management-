@@ -5,9 +5,9 @@ from .models import Student, SubGroup, SuperGroup
 
 class StudentInlineGroup(admin.TabularInline):
     model = Student
-    list_display = ('first_name', 'last_name', 'email')
+    list_display = ('first_name', 'last_name', 'email', 'last_login')
     search_fields = ('first_name', 'last_name', 'email')
-    fields = ('first_name', 'last_name', 'email')
+    fields = ('first_name', 'last_name', 'email', 'last_login')
 
 
 class SubGroupInlineAdmin(admin.TabularInline):

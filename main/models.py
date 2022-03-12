@@ -85,6 +85,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
     group = models.ForeignKey(SubGroup, on_delete=models.CASCADE, related_name='supergroup', blank=True, null=True)
     data_joined = models.DateField(auto_now_add=True, db_index=True)
     is_staff = models.BooleanField(default=False)
+    last_request = models.DateTimeField(blank=True, null=True, verbose_name='Последний запрос')
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ('last_name', )
